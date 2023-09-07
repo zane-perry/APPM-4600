@@ -1,3 +1,4 @@
+Perry
 ### Repository for APPM 4600
 
 This is the repository for Zane Perry, Student ID 110075979, for APPM 4600 Numerical Analysis and Computation
