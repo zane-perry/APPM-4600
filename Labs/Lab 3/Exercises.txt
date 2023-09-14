@@ -1,0 +1,94 @@
+EXERCISE 1
+
+f(x) = x^2(x-1)
+
+a) endpoints (0.5,2):
+
+the approximate root is 0.9999999701976776
+the error message reads: 0
+f(astar) = -2.98023206113385e-08
+
+
+b) endpoints (-1, 0.5):
+the approximate root is -1
+the error message reads: 1
+f(astar) = -2
+
+
+
+c) endpoints (-1, 2):
+the approximate root is 0.9999999701976776
+the error message reads: 0
+f(astar) = -2.98023206113385e-08
+
+
+Using the endpoints of -1 and 0.5 was not successful because both endpoints resulted in a negative
+function value, which causes the bisection method to fail because it cannot guarantee that a root is in that interval by the IVT
+Both of the other intervals would work. The algorithm would not be able to find x=0 as a root because it is an even root and 
+does not change signs around that zero
+
+
+EXERCISE 2
+
+
+
+a) 
+the approximate root is 0.9999755859374998
+the error message reads: 0
+f(astar) = -0.0001953160762948372
+
+
+b)
+
+the approximate root is 0
+the error message reads: 1
+f(astar) = -3
+
+c) i.
+
+the approximate root is 0
+the error message reads: 0
+f(astar) = 0.0
+
+ii.
+
+the approximate root is 0.5
+the error message reads: 1
+f(astar) = 0.479425538604203
+
+
+The algorithm used appears to be working as expected and successfully found all roots that satisfied the necessary conditions with sufficient accuracy
+
+
+
+
+EXERCISE 3
+
+
+a)
+
+OverflowError: (34, 'Result too large')
+
+
+b)
+
+
+OverflowError: (34, 'Result too large')
+
+
+c)
+
+the approximate fixed point is: 1.475773161594552
+f1(xstar): 1.4757731615945522
+Error message reads: 0
+
+
+d)
+
+the approximate fixed point is: 1.473578045466708
+f1(xstar): 1.4779035096682074
+Error message reads: 1
+
+
+The algorithm only converged for parts c and d. According to the overflow error, this indicates that the value of the function was too large when evaluated at
+the values of x run by the algorithm.
