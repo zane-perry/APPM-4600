@@ -1,0 +1,8 @@
+PRE-LAB Exercises
+
+1. Code is shown in the convergence function in fixedpt_iterations.py
+
+2.
+a) 12 iterations were required for the fixed point algorithm to converge
+
+b) The convergence was linear with a rate of 0.1271839945037372
