@@ -1,8 +1,80 @@
 PRE-LAB Exercises
 
-1. Code is shown in the convergence function in fixedpt_iterations.py
+1. Code is shown in the convergence function in iterations.py
 
 2.
 a) 12 iterations were required for the fixed point algorithm to converge
 
 b) The convergence was linear with a rate of 0.1271839945037372
+
+
+
+3.2
+
+The subroutine is shown in the aitken function in iterations.py
+
+By applying the aitken iteration, the sequence converged in 5 iterations which is indeed faster than the fixed point iteration, though it is still of linear convergence order
+
+
+3.4
+
+The subroutine is shown in the steffenson function in iterations.py
+
+The steffenson interation converged in 7 iterations, between the fixed point and aitkens sequences, though still at a linear convergence
+
+
+
+
+
+FULL OUTPUT FROM CODE:
+
+
+
+FIXED POINT
+the number of iterations was  12
+the approximate fixed point is: 1.3652300134164816
+the convergence is of order  1
+with asymptotic error constant  0.1271839945037372
+Iterations: 
+ [[1.5       ]
+ [1.34839972]
+ [1.36737637]
+ [1.36495702]
+ [1.36526475]
+ [1.36522559]
+ [1.36523058]
+ [1.36522994]
+ [1.36523002]
+ [1.36523001]
+ [1.36523001]
+ [1.36523001]
+ [1.36523001]]
+error message reads:  0
+AITKENS
+the number of iterations was  5
+the approximate fixed point is:  1.365230013414136
+the convergence is of order  1
+with asymptotic error constant  0.01586573734409391
+Iterations: 
+ [[1.36526522]
+ [1.36523058]
+ [1.36523002]
+ [1.36523001]
+ [1.36523001]
+ [1.36523001]]
+error message reads:  0
+STEFFENSONS
+the number of iterations was  7
+the approximate fixed point is:  1.3652300134137803
+the convergence is of order  1
+with asymptotic error constant  0.12753235162873716
+Iterations: 
+ [[1.5       ]
+ [1.34839972]
+ [1.36737637]
+ [1.36526522]
+ [1.36522553]
+ [1.36523058]
+ [1.36523001]
+ [1.36523001]]
+error message reads:  0
