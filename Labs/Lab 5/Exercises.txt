@@ -1,0 +1,18 @@
+
+
+1. The newtons method is guaranteed to converge to a unique root in a close neightborhood if the following condition holds for all f(x) in the neightborhood
+
+abs((f(x) * f''(x)) / f''(x)^2) < 1
+
+
+3. In order to modify the bisection code so it stops in the basis of convergence, the bisection code also needs to take the first and second derivatives
+of f(x) as inputs so that the condition above can be checked for each midpoint. A tolerance is no longer needed
+
+5. The advantages of the new method is that it finds a point guaranteed to converge by newtons method very quickly, but you need to know the first and 
+second derivative of the function in order to implement it. You also need a root of odd multiplicity for the bisection portion to still work
+
+6. Using bisection 47 iterations were required to find the root
+
+Using newton's method 27 iterations were required to find the root
+
+Using the new hybrid iteration, only 9 (combined) iterations were required to find the root
