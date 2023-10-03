@@ -11,11 +11,10 @@ def driver():
     Nmax = 100
     tol = 1e-10
 
-    [p,error,count] =  Newton(x0,tol,Nmax)
+    [p,error,count] =  LazyNewton(x0,tol,Nmax)
     print('The number of iterations was: ', '%d' % count)
     print('The approximate root is: ', p)
     print('The error message reads: ', '%d' % error)
-
 
 
 def evalF(x): 
@@ -36,28 +35,28 @@ def evalJ(x):
     return J
 
 
-def Newton(x0,tol,Nmax):
+def LazyNewton(x0,tol,Nmax):
 
+    ''' Lazy Newton = use only the inverse of the Jacobian for initial guess'''
     ''' inputs: x0 = initial guess, tol = tolerance, Nmax = max its'''
     ''' Outputs: xstar= approx root, ier = error message, its = num its'''
 
+    J = evalJ(x0)
+    Jinv = inv(J)
     for count in range(Nmax):
-        J = evalJ(x0)
-        Jinv = inv(J)
-        F = evalF(x0)
+
+       F = evalF(x0)
+       x1 = x0 - Jinv.dot(F)
        
-        x1 = x0 - Jinv.dot(F)
-       
-        if (norm(x1-x0) < tol):
-            p = x1
-            error = 0
-            return[p, error, count]
+       if (norm(x1-x0) < tol):
+           p = x1
+           error = 0
+           return[p,error,count]
            
-        x0 = x1
+       x0 = x1
     
     p = x1
-    count = 1
-    return[p,error,Nmax]
-
+    error = 1
+    return[p,error,count]  
 
 driver()
