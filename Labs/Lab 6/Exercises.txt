@@ -1,0 +1,75 @@
+
+
+Pre Lab:
+
+Forward Difference:
+-9.9998333341666734e-01
+-9.9999583333852027e-01
+-9.9999895833363750e-01
+-9.9999973958333221e-01
+-9.9999993489599082e-01
+-9.9999998372375942e-01
+-9.9999999593150113e-01
+-9.9999999898183789e-01
+-9.9999999974477727e-01
+-9.9999999993551214e-01
+
+Linear
+
+
+Centered Difference:
+-9.9998333341666734e-01
+-9.9999583333852027e-01
+-9.9999895833363750e-01
+-9.9999973958333221e-01
+-9.9999993489599082e-01
+-9.9999998372375942e-01
+-9.9999999593150113e-01
+-9.9999999898183789e-01
+-9.9999999974477727e-01
+-9.9999999993551214e-01
+
+Linear
+
+
+
+
+
+
+3.2 
+
+
+I used an iteration that recalculated the Jacobian and Inverse when the distance (norm subtraction) of the iterates was above a certain threshold.
+This has the behavior of running Newton's method until the errors become small enough that Lazy Newton takes over
+
+My partner used an iteration that recalculated the Jacobian every other iteration, so a direct hybrid between Lazy and normal Newton's method.
+
+
+The original Newton's method took 7 iterations to converge and required 1 inverse calculation
+
+
+My method took 4 iterations to converge and required 2 inverse calculations
+
+
+My partner's method took 4 iterations to converge and required 3 inverse calculations
+
+
+Both of our methods took only 4 iterations to converge but my method required 1 less calculation of an inverse Jacobian
+
+
+
+3.3
+
+With a h size of 10^-3|x0| it took 4 iterations to converge
+
+With a h size of 10^-7|x0| it took 3 iterations to converge
+
+With a h size of 10^-10|x0| it took 3 iterations to converge
+
+
+The iterations converge faster with a smaller h size (closer approximation of the derivative)
+
+
+3.4
+
+The hybrid method performed about as well as the slacker newton (4 iterations, 2 inverses), but had the advantage of not needing to know the exact Jacobian
