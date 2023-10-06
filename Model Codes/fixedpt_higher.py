@@ -6,7 +6,7 @@ from numpy.linalg import norm
 
 def driver():
 
-    x0 = np.array([0.1, 0.1, -0.1])
+    x0 = np.array([2,-4])
     Nmax = 100
     tol = 1e-10
 
@@ -18,11 +18,10 @@ def driver():
 
 def evalF(x): 
 
-    F = np.zeros(3)
+    F = np.zeros(2)
     
-    F[0] = 3*x[0]-math.cos(x[1]*x[2])-1/2
-    F[1] = x[0]-81*(x[1]+0.1)**2+math.sin(x[2])+1.06
-    F[2] = np.exp(-x[0]*x[1])+20*x[2]+(10*math.pi-3)/3
+    F[0] = ((1/np.sqrt(2)) * np.sqrt(1 + ((x[0] + x[1])**2))) - (2/3)
+    F[1] = ((1/np.sqrt(2)) * np.sqrt(1 + ((x[0] - x[1])**2))) - (2/3)
     return F
 
 
@@ -31,7 +30,6 @@ def fixedpt_system(x0, tol, Nmax):
     count = 0
 
     while(count < Nmax):
-        print(count)
         count += 1
         x1 = evalF(x0)
         if(norm(x1 - x0) < tol):
