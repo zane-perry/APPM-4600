@@ -13,6 +13,9 @@ def driver():
     print('The number of iterations was: ', '%d' % count)
     print('The approximate root is: ', '%16.16e' % p)
     print('The error message reads: ', '%d' % error)
+    print('Iterations:')
+    for it in range(count + 1):
+        print('%16.16e' % p_iterations[it])
 
 
 
@@ -41,14 +44,14 @@ def secant(f,x0,x1,tol,Nmax):
         if(fx0 - fx1 == 0):
             error = 1
             p = x1
-            return [p, np.trim_zeros(p_iterations),error, count]
+            return [p, np.trim_zeros(p_iterations),error, count + 1]
       
         x2 = x1 - ((fx1 * (x1 - x0)) / (fx1 - fx0))
         p_iterations[count + 1] = x2
         if(abs(x2 - x1) < tol):
             p = x2
             error = 0
-            return [p, np.trim_zeros(p_iterations),error, count]
+            return [p, np.trim_zeros(p_iterations),error, count + 1]
 
       
         x0 = x1

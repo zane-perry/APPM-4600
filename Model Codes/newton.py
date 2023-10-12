@@ -14,6 +14,9 @@ def driver():
   print('The number of iterations was: ', '%d' % count)
   print('The approximate root is: ', '%16.16e' % p)
   print('The error message reads: ', '%d' % error)
+  print('Iterations: ')
+  for it in range(count + 1):
+    print('%16.16e' % p_iterations[it])
   
 
 
@@ -27,10 +30,10 @@ def newton(f,fp,p0,tol,Nmax):
       if (abs(p1-p0) < tol):
           p = p1
           error = 0
-          return [p,p_iterations,error,count]
+          return [p,p_iterations,error,count + 1]
       p0 = p1
   p = p1
   error = 1
-  return [p,p_iterations,error,count]
+  return [p,p_iterations,error,count + 1]
         
 driver()

@@ -11,10 +11,12 @@ def driver():
     Nmax = 100
     tol = 1e-10
 
-    [p,error,count] =  Broyden(x0,tol,Nmax)
+    [p,error,count, p_iterations] =  Broyden(x0,tol,Nmax)
     print('The number of iterations was: ', '%d' % count)
     print('The approximate root is: ', p)
     print('The error message reads: ', '%d' % error)
+    for it in range(count + 1):
+        print('x value: ', '%16.16e' % p_iterations[it][0], 'y value: ', '%16.16e' % p_iterations[it][1], 'z value: ', '%16.16e' % p_iterations[it][2])
 
 
 def evalF(x): 
@@ -60,8 +62,12 @@ def Broyden(x0,tol,Nmax):
     v = evalF(x0)
     A = np.linalg.inv(A0)
 
+    p_iterations = np.zeros([Nmax, 3])
+
     s = -A.dot(v)
     xk = x0+s
+
+    p_iterations[0] = xk
     for count in range(Nmax):
         '''(save v from previous step)'''
         w = v
@@ -81,12 +87,13 @@ def Broyden(x0,tol,Nmax):
         ''' -A_k^{-1}F(x_k)'''
         s = -A.dot(v)
         xk = xk+s
+        p_iterations[count + 1] = xk
         if (norm(s)<tol):
             p = xk
             error = 0
-            return[p,error,count]
+            return[p,error,count + 1, p_iterations]
     p = xk
     error = 1
-    return[p,error,count]
+    return[p,error,count + 1, p_iterations]
 
 driver()
